@@ -1,0 +1,66 @@
+// 스크린리더 텍스트
+.screen-reader-text { &:extend(.sr-only); }
+
+// Clearing floats
+.hentry,
+.page-content,
+.entry-content {
+	&:extend(.clearfix all);
+}
+
+// 긴 단어의 줄바꿈
+.page-header,
+.page-content,
+.entry-header,
+.entry-content,
+.entry-summary {
+	.hyphens();
+}
+
+// 헤더: 메뉴 토글 버튼
+.navbar-toggle {
+	.no-border;
+	&:hover, &:focus {
+		.icon-bar { background-color: @navbar-default-link-hover-color }
+	}
+}
+
+// 검색 폼
+.search-form {
+	label          { display: block }
+	.search-submit { display: none }
+	.search-field  { .form-control }
+}
+
+// 페이지네이션
+.nav-pagination {
+	.user-select(none);
+	cursor: default;
+	text-align: center;
+	.pagination {
+		margin: 0;
+	}
+}
+.pagination > li > span.dots {
+	color: @text-muted;
+	&:hover,
+	&:focus {
+		background-color: @pagination-bg;
+		color: @text-muted;
+	}
+}
+
+// 푸터
+.site-info {
+	&:extend(.clearfix all);
+	color: @text-light;
+	padding-top:    15px;
+	padding-bottom: 15px;
+	a { .link(@text-light) }
+	a.link-admin {
+		&, &:hover {
+			color: @text-light;
+			cursor: default;
+		}
+	}
+}
