@@ -1,62 +1,55 @@
-@wp-img-m:      10px;
-@wp-img-m-wide: 20px;
+@wp-img-margin: 10px;
 
-// 특성 이미지 및 글 이미지
-.post-thumbnail { display: block }
-.wp-post-image,
-.wp-caption { .img-responsive() }
-
-// 캡션이 있는 이미지
-.wp-caption,
-.entry-attachment {
-	color: @gray-light;
-	margin-bottom: (1.5 * @wp-img-m);
-	img {
-		display: block;
-		margin: 0;
-	}
-	.wp-caption-text,
-	.entry-caption {
-		.font-size(12);
-		line-height: 1.5;
-		margin: (0.5 * @wp-img-m) 0;
-		padding-right: @wp-img-m;
-	}
-}
-
-// 공통 요소
-//== 정렬
+// 정렬
 .alignleft {
 	clear: left;
 	float: left;
-	margin: @wp-img-m @wp-img-m-wide @wp-img-m 0;
+	margin: @wp-img-margin (2 * @wp-img-margin) @wp-img-margin 0;
 }
 .alignright {
 	clear: right;
 	float: right;
-	margin: @wp-img-m 0 @wp-img-m @wp-img-m-wide;
+	margin: @wp-img-margin 0 @wp-img-margin (2 * @wp-img-margin);
 }
 .aligncenter {
+	clear: both;
 	.center-block;
-	margin-top:    @wp-img-m;
-	margin-bottom: @wp-img-m;
+	margin-top:    @wp-img-margin;
+	margin-bottom: @wp-img-margin;
 }
 
-//== 정렬: 인용
+// 인용
 blockquote {
 	&.alignleft,
 	&.alignright {
-		padding-top: @wp-img-m-wide;
+		margin-top:    (2 * @wp-img-margin);
+		margin-bottom: (2 * @wp-img-margin);
 		width: 50%;
-		p { margin-bottom: @wp-img-m-wide }
 	}
 }
 
-//== 갤러리
-@wp-gallery-m: 4px;
+// 특성 이미지
+.post-thumbnail {
+	display: block;
+}
+
+// 캡션
+.wp-caption {
+	max-width: 100%;
+}
+.wp-caption-text,
+.entry-caption,
+.gallery-caption {
+	.12px;
+	.text-light;
+	margin-bottom: @wp-img-margin;
+	padding: (0.5 * @wp-img-margin) 0;
+}
+
+// 갤러리
 .gallery {
 	&:extend(.clearfix all);
-	margin-bottom: @wp-img-m-wide;
+	margin-bottom: (2 * @wp-img-margin);
 }
 .gallery-item {
 	display: inline-block;
