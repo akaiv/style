@@ -50,8 +50,7 @@
 }
 
 // 푸터
-.site-info {
-	&:extend(.clearfix all);
+.site-footer {
 	color: @text-light;
 	a { .link(@text-light) }
 	a.link-admin {
@@ -60,4 +59,7 @@
 			cursor: default;
 		}
 	}
+}
+.site-info {
+	&:extend(.clearfix all);
 }
