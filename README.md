@@ -27,11 +27,9 @@ style/
 │   ├── akaiv.less
 │   ├── classes.less
 │   └── color.less
-├── font-awesome/
 └── wordpress/
     ├── core.less
     ├── entry.less
-    ├── icons.less
     └── image.less
 ```
 
