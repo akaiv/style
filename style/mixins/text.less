@@ -1,0 +1,38 @@
+// 글꼴 크기
+.font-size(@sizeValue) {
+	@remValue: (@sizeValue / 10);
+	@pxValue: @sizeValue;
+	font-size: ~"@{pxValue}px";
+	font-size: ~"@{remValue}rem";
+}
+
+// 자주 선언하는 글꼴 크기
+.10px()  { .font-size(10) }
+.11px()  { .font-size(11) }
+.12px()  { .font-size(12) }
+.13px()  { .font-size(13) }
+.14px()  { .font-size(14) }
+.15px()  { .font-size(15) }
+.16px()  { .font-size(16) }
+
+// 링크: 링크의 색상과 링크에 마우스오버했을 때의 색상
+.link(@color;@value:10%) when not(iscolor(@value)) {
+	@hover: darken(@color, @value);
+	&                { color: @color }
+	&:hover, &:focus { color: @hover }
+}
+.link(@color;@value) when (iscolor(@value)) {
+	@hover: @value;
+	&                { color: @color }
+	&:hover, &:focus { color: @hover }
+}
+
+// 텍스트 줄 수 제한 (웹킷)
+.text-overflow-line-clamp(@line:3) {
+	overflow: hidden;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: @line;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+}

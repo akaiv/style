@@ -3,7 +3,7 @@
 ## 개요
 * 웹프로젝트 스타일링을 돕는 [LESS](http://lesscss.org) 파일들입니다.
 * [아카이브](http://akaiv.com)에서 작성하는 모든 프로젝트에 이 라이브러리가 사용됩니다.
-* [아카이브 연구소](http://akaivlabs.com)의 [심철환](http://simcheolwhan.com)이 작성했습니다.
+* [아카이브](http://akaiv.com)의 [심철환](http://simcheolwhan.com)이 작성했습니다.
 
 ## 시작
 - 이 저장소를 프로젝트의 서브모듈로 추가합니다.
@@ -12,25 +12,23 @@ git submodule add https://github.com/akaiv/style.git
 ```
 - LESS 파일에서 서브모듈을 포함시킵니다. 단, [부트스트랩](http://getbootstrap.com)과 같은 프레임워크를 사용중이라면 그보다 뒤에서 선언합니다.
 ```
-@style-path: "../style";
-@import "@{style-path}/akaiv/akaiv";
+@akaiv-path: "akaiv/style";
+@import "@{akaiv-path}/akaiv";
 ```
 
 ## 내용
 ```
-style/
-├── akaiv/
-│   ├── mixins
-│   ├── _layout.less
-│   ├── _mixin.less
-│   ├── _variables.less
-│   ├── akaiv.less
-│   ├── classes.less
-│   └── color.less
-└── wordpress/
-    ├── core.less
-    ├── entry.less
-    └── image.less
+style
+├── mixins
+│   ├── background.less
+│   ├── border.less
+│   └── text.less
+├── akaiv.less
+├── colors.less
+├── layout.less
+├── mixins.less
+├── typhography.less
+└── variables.less
 ```
 
 ## 사용법
@@ -48,9 +46,8 @@ style/
 
 ### 글꼴 클래스
 ```LESS
-.serif      // serif
-.strong     // font-weight: 700
-.fwn        // font-weight: 400
+.strong     // font-weight
+.normal     // font-weight
 .underline  // text-decoration
 .lowercase  // text-transform
 .uppercase  // text-transform
@@ -93,11 +90,6 @@ style/
 ### 텍스트
 ```LESS
 .text-overflow-line-clamp(@line:3)
-```
-
-### 컬럼
-```LESS
-.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px)
 ```
 
 ## Copyright and license

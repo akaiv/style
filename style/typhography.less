@@ -1,0 +1,34 @@
+// 글꼴
+.strong     { font-weight: @bold }
+.normal     { font-weight: @normal }
+.underline  { text-decoration: underline }
+.lowercase  { .text-lowercase }
+.uppercase  { .text-uppercase }
+.capitalize { .text-capitalize }
+
+// 굵게
+strong,
+optgroup,
+dt,
+kbd kbd,
+label, .label {
+	&:extend(.strong);
+}
+
+// 보통
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	small, .small {
+		&:extend(.normal);
+	}
+}
+.radio label, .checkbox label,
+.radio-inline, .checkbox-inline,
+.btn-link,
+.dropdown-menu > li > a,
+.input-group-addon,
+.tooltip, .popover,
+.lead,
+.jumbotron p {
+	&:extend(.normal);
+}

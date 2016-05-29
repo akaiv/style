@@ -1,0 +1,30 @@
+// 배경 이미지
+.background(@size:cover;@posx:center;@posy:center) {
+	background-size: @size;
+	background-clip: padding-box;
+	background-position: @posx @posy;
+	background-repeat: no-repeat;
+}
+
+// 필터: 블러
+.blur(@blur:3px) {
+	filter: blur(@blur);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@blur');
+}
+
+// Selection
+.selection(@background) when (isnumber(@background)) {
+	@color: inherit;
+	::selection {
+		color: @color;
+		background-color: darken(#FFF, @background);
+		background-color: fade(#000, @background);
+	}
+}
+.selection(@background) when not (isnumber(@background)) {
+	@color: white;
+	::selection {
+		color: @color;
+		background-color: @background;
+	}
+}
